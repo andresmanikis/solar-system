@@ -1,4 +1,6 @@
-solar-system
-============
+bouncing-balls
+==============
 
-Solar system simulation
+Elastic bounce simulation.
+
+This project simulates the elastic bounce with different elasticities.
