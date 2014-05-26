@@ -32,6 +32,5 @@ Space.prototype.calculateForce = function(planet) {
 		}
 
 		console.log("Calculating force caused by planet " + i);
-		forceX = 
 	};
 };

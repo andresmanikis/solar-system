@@ -1,5 +1,5 @@
 function Vector(x, y) {
-	if (!x || !y) { throw new Error("Missing arguments!") };
+	if (x === undefined || y === undefined) { throw new Error("Missing arguments!") };
 	
 	this.x = x;
 	this.y = y;
