@@ -33,4 +33,6 @@ describe('Space', function() {
 			planet2.getForce().should.eql(new Vector(-0.25,0));
 		})
 	})
+
+	it('should calculate the forces between three planets')
 })
