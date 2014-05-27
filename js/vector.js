@@ -5,6 +5,10 @@ function Vector(x, y) {
 	this.y = parseFloat(y);
 }
 
+Vector.create = function(x, y) {
+	return new Vector(x, y);
+}
+
 Vector.prototype.getX = function() {
 	return this.x;
 };
@@ -38,6 +42,13 @@ Vector.prototype.setMagnitude = function(magnitude) {
 	this.normalize();
 	this.x *= magnitude;
 	this.y *= magnitude;
+
+	return this;
+};
+
+Vector.prototype.add = function(otherVector) {
+	this.x += otherVector.getX();
+	this.y += otherVector.getY();
 
 	return this;
 };

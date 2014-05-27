@@ -16,6 +16,10 @@ Planet.prototype.setForce = function(force) {
 	this.force = force;
 };
 
+Planet.prototype.getForce = function() {
+	return this.force;
+};
+
 Planet.prototype.getAttractionTo = function(otherPlanet) {
 	var forceMagnitude = this.getMass() * otherPlanet.getMass() / Math.pow(this.getPosition().distanceTo(otherPlanet.getPosition()), 2);
 	return otherPlanet.getPosition().minus(this.getPosition()).normalize().setMagnitude(forceMagnitude);

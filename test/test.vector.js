@@ -20,6 +20,12 @@ describe('Vector', function(){
     })
   })
 
+  describe('::create', function() {
+    it('should be able to create a new vector', function() {
+      Vector.create(1,1).should.eql(new Vector(1,1));
+    })
+  })
+
   describe('#getMagnitude', function(){
     it('should return the magnitude of the vector', function(){
       var vector = new Vector(2, 2);
@@ -109,5 +115,9 @@ describe('Vector', function(){
       vector.getX().should.equal(side);
       vector.getY().should.equal(side);
     })
+  })
+
+  it('should be able to add two vectors', function() {
+    Vector.create(1,1).add(Vector.create(2,2)).should.eql(Vector.create(3,3));
   })
 })
