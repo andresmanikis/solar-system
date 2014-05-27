@@ -1,4 +1,13 @@
 describe('Vector', function(){
+  describe('comparison for testing', function() {
+    it('should be able to detect two equal vectors', function() {
+      var vector1 = new Vector(1,1);
+      var vector2 = new Vector(1,1);
+
+      vector1.should.eql(vector2);
+    })
+  })
+
   describe('#new', function(){
     it('should create vector with set coordinates', function(){
       var vector = new Vector(1, 2);
