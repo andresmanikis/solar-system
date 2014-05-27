@@ -44,7 +44,7 @@ describe('Vector', function(){
   })
 
   describe('#minus', function() {
-    it("shuold return (2,2) when first is at (2,2) and second at (2,2)", function() {
+    it("should return (2,2) when first is at (2,2) and second at (2,2)", function() {
       var vector1 = new Vector(0, 0);
       var vector2 = new Vector(2, 2);
 
@@ -52,7 +52,7 @@ describe('Vector', function(){
       vector2.minus(vector1).getY().should.be.exactly(2.0);
     })
 
-    it("shuold return (-2,-2) when first is at (0,0) and second at (2,2)", function() {
+    it("should return (-2,-2) when first is at (0,0) and second at (2,2)", function() {
       var vector1 = new Vector(0, 0);
       var vector2 = new Vector(2, 2);
 
