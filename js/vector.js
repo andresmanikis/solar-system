@@ -52,3 +52,18 @@ Vector.prototype.add = function(otherVector) {
 
 	return this;
 };
+
+Vector.add = function(first, second) {
+	return new Vector(first.getX() + second.getX(), first.getY() + second.getY());
+}
+
+Vector.prototype.by = function(scalar) {
+	this.x *= scalar;
+	this.y *= scalar;
+
+	return this;
+};
+
+Vector.by = function(vector, scalar) {
+	return new Vector(vector.getX() * scalar, vector.getY() * scalar);
+};

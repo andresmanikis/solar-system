@@ -1,5 +1,6 @@
 function Planet() {
 	this.position = new Vector(0.0, 0.0);
+	this.speed = new Vector(0.0, 0.0);
 	this.force = new Vector(0.0, 0.0);
 	this.mass = 1.0;
 }
@@ -10,6 +11,14 @@ Planet.prototype.setMass = function(mass) {
 
 Planet.prototype.setPosition = function(position) {
 	this.position = position;
+};
+
+Planet.prototype.setSpeed = function(speed) {
+	this.speed = speed;
+};
+
+Planet.prototype.getSpeed = function() {
+	return this.speed;
 };
 
 Planet.prototype.setForce = function(force) {
@@ -35,4 +44,11 @@ Planet.prototype.getPosition = function() {
 
 Planet.prototype.getDistanceTo = function(otherPlanet) {
 	return this.getPosition().distanceTo(otherPlanet.getPosition());
+};
+
+Planet.prototype.update = function(step) {
+	// First position, last force. Think it's better than the other way around.
+	this.position.add(Vector.by(this.speed, step));
+	this.speed.add(Vector.by(this.force, step));
+	return this;
 };

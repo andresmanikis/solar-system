@@ -53,4 +53,54 @@ describe('Planet', function() {
 			planet1.getAttractionTo(planet2).should.eql(Vector.create(2,0));
 		})
 	})
+
+	describe('#update', function() {
+		it('should stay still if speed is (0,0)', function() {
+			var planet = new Planet();
+			planet.setPosition(new Vector(0,0));
+			planet.setSpeed(new Vector(0,0));
+			planet.update(1).getPosition().should.eql(new Vector(0,0));
+		})
+
+		it('should be in (1,0) after 1 second if speed is (1,0)', function() {
+			var planet = new Planet();
+			planet.setPosition(new Vector(0,0));
+			planet.setSpeed(new Vector(1,0));
+			planet.update(1).getPosition().should.eql(new Vector(1,0));
+		})
+
+		it('should be in (-0.5,0) after 0.5 second if speed is (-1,0)', function() {
+			var planet = new Planet();
+			planet.setPosition(new Vector(0,0));
+			planet.setSpeed(new Vector(1,0));
+			planet.update(1).getPosition().should.eql(new Vector(1,0));
+		})
+
+		it('should keep speed the same when force is (0,0)', function() {
+			var planet = new Planet();
+			planet.setForce(new Vector(0,0));
+			
+			planet.setSpeed(new Vector(0,0));
+			planet.update(1).getSpeed().should.eql(new Vector(0,0));
+
+			planet.setSpeed(new Vector(10,10));
+			planet.update(1).getSpeed().should.eql(new Vector(10,10));
+		})
+
+		it('should change speed in (1,0) after 1 second when force is (1,0)', function() {
+			var planet = new Planet();
+			planet.setForce(new Vector(1,0));
+			
+			planet.setSpeed(new Vector(0,0));
+			planet.update(1).getSpeed().should.eql(new Vector(1,0));
+		})
+
+		it('should change speed in (0,-0.5) after 0.5 second when force is (0,-1)', function() {
+			var planet = new Planet();
+			planet.setForce(new Vector(0,-1));
+			
+			planet.setSpeed(new Vector(1,0));
+			planet.update(0.5).getSpeed().should.eql(new Vector(1,-0.5));
+		})
+	})
 })

@@ -117,7 +117,37 @@ describe('Vector', function(){
     })
   })
 
-  it('should be able to add two vectors', function() {
-    Vector.create(1,1).add(Vector.create(2,2)).should.eql(Vector.create(3,3));
+  describe('#add', function() {
+    it('should be able to add two vectors', function() {
+      Vector.create(1,1).add(Vector.create(2,2)).should.eql(Vector.create(3,3));
+    })
+
+    it('should return the same vector updated', function() {
+      var original = new Vector(0,0);
+      original.add(Vector.create(0,0)).should.be.exactly(original);
+    })
+  })
+
+  describe('::add', function() {
+    it('should be able to add two vectors', function() {
+      Vector.add(new Vector(1,1), new Vector(2,2)).should.eql(new Vector(3,3));
+    })
+  })
+
+  describe('#by', function() {
+    it('should be able to multiply a vector by a scalar', function() {
+      Vector.create(1,1).by(2).should.eql(Vector.create(2,2));
+    })
+
+    it('should return the same vector updated', function() {
+      var original = new Vector(1,1);
+      original.by(2).should.be.exactly(original);
+    })
+  })
+
+  describe('::by', function() {
+    it('should be able to multiply a vector by a scalar', function() {
+      Vector.by(new Vector(1,1), 2).should.eql(Vector.create(2,2));
+    })
   })
 })
