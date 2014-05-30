@@ -6,9 +6,10 @@ Space.prototype.addPlanet = function(planet) {
 	this.planets.push(planet);
 };
 
-Space.prototype.update = function() {
+Space.prototype.update = function(step) {
 	for (var i = this.planets.length - 1; i >= 0; i--) {
 		this.planets[i].setForce(this.calculateForce(this.planets[i]));
+		this.planets[i].update(step);
 	}
 };
 

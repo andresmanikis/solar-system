@@ -7,11 +7,10 @@ function Display(drawingArea, space) {
 	};
 
 	this.planetSize = this.determinePlanetSize();
-
-	console.log(this.planetSize);
 }
 
 Display.prototype.draw = function() {
+	this.drawingArea.empty();
 	var planets = this.space.getPlanets();
 
 	for (var i = planets.length - 1; i >= 0; i--) {
