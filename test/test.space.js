@@ -111,4 +111,18 @@ describe('Space', function() {
 			planet5.getForce().getY().should.be.lessThan(0);
 		})
 	})
+
+	describe('#getPlanets', function() {
+		it('should return an array of containing planets', function() {
+			var space = new Space();
+
+			space.addPlanet(new Planet());
+			space.addPlanet(new Planet());
+
+			var planets = space.getPlanets();
+			planets.length.should.equal(2);
+			planets[0].should.be.instanceOf(Planet);
+			planets[1].should.be.instanceOf(Planet);
+		})
+	})
 })

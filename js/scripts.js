@@ -1,16 +1,14 @@
 $(function() {
-	var planet1 = new Planet($("#planet1"));
-	planet1.setMass(1);
-	planet1.setPosition(-100, -100);
+	var planet1 = new Planet();
+	planet1.setPosition(new Vector(-200,0));
 
-	var planet2 = new Planet($("#planet2"));
-	planet2.setMass(1);
-	planet2.setPosition(100, 100);
+	var planet2 = new Planet();
+	planet2.setPosition(new Vector(200,0));
 
-	var space = new Space($("#space"));
+	var space = new Space();
 	space.addPlanet(planet1);
 	space.addPlanet(planet2);
 
-	space.draw();
-	space.update();
+	var display = new Display($("#space"), space);
+	display.draw();
 });

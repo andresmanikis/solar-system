@@ -25,3 +25,7 @@ Space.prototype.calculateForce = function(planet) {
 
 	return force;
 };
+
+Space.prototype.getPlanets = function() {
+	return this.planets;
+};
