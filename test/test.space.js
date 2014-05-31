@@ -17,7 +17,7 @@ describe('Space', function() {
 			planet1.getForce().should.eql(new Vector(0,0));
 			planet2.getForce().should.eql(new Vector(0,0));
 
-			space.update();
+			space.update(0);
 
 			planet1.getForce().should.eql(new Vector(1,0));
 			planet2.getForce().should.eql(new Vector(-1,0));
@@ -27,7 +27,7 @@ describe('Space', function() {
 			planet1.getForce().should.eql(new Vector(1,0));
 			planet2.getForce().should.eql(new Vector(-1,0));
 
-			space.update();
+			space.update(0);
 
 			planet1.getForce().should.eql(new Vector(0.25,0));
 			planet2.getForce().should.eql(new Vector(-0.25,0));
@@ -56,7 +56,7 @@ describe('Space', function() {
 			planet2.getForce().should.eql(new Vector(0,0));
 			planet3.getForce().should.eql(new Vector(0,0));
 
-			space.update();
+			space.update(0);
 
 			planet1.getForce().should.eql(new Vector(1.25,0));
 			planet2.getForce().should.eql(new Vector(0,0));
@@ -98,7 +98,7 @@ describe('Space', function() {
 			planet4.getForce().should.eql(new Vector(0,0));
 			planet5.getForce().should.eql(new Vector(0,0));
 
-			space.update();
+			space.update(0);
 
 			planet1.getForce().getX().should.be.greaterThan(0);
 			planet1.getForce().getY().should.eql(0);

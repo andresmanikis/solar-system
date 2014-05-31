@@ -39,3 +39,8 @@ Display.prototype.determinePlanetSize = function() {
 
 	return size;
 };
+
+Display.prototype.showSimulationAborted = function() {
+	this.drawingArea.empty();
+	this.drawingArea.addClass('simulation-aborted')
+};

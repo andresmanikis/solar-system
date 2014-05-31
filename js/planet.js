@@ -30,7 +30,12 @@ Planet.prototype.getForce = function() {
 };
 
 Planet.prototype.getAttractionTo = function(otherPlanet) {
-	var forceMagnitude = this.getMass() * otherPlanet.getMass() / Math.pow(this.getPosition().distanceTo(otherPlanet.getPosition()), 2);
+	var distance = Math.pow(this.getPosition().distanceTo(otherPlanet.getPosition()), 2);
+
+	var forceMagnitude = this.getMass() * otherPlanet.getMass() / distance;
+
+	if (forceMagnitude > 1000) { throw new Error('Sorry, force too big :|') }
+
 	return otherPlanet.getPosition().minus(this.getPosition()).normalize().setMagnitude(forceMagnitude);
 };
 

@@ -15,10 +15,15 @@ $(function() {
 
 	var display = new Display($("#space"), space);
 
-	setInterval(function() {
-		console.log('tic');
-		space.update(1.0 / FPS);
+	var interval = setInterval(function() {
+		try {
+			space.update(1.0 / FPS);
+		} catch (e) {
+			clearInterval(interval);
+			display.showSimulationAborted();
+		}
+
 		display.draw();
-	}, 1.0 / FPS);
+	}, 1000 / FPS);
 	display.draw();
 });

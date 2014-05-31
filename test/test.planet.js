@@ -52,6 +52,25 @@ describe('Planet', function() {
 
 			planet1.getAttractionTo(planet2).should.eql(Vector.create(2,0));
 		})
+
+		it('should raise an error when force is larger that 1000', function() {
+			var planet1 = new Planet();
+			var planet2 = new Planet();
+			planet1.setPosition(new Vector(0,0));
+			planet2.setPosition(new Vector(1,0));
+
+			planet2.setMass(1);
+			(function() { planet1.getAttractionTo(planet2) }).should.not.throw('Sorry, force too big :|Sorry, force too big :|');
+
+			planet2.setMass(100);
+			(function() { planet1.getAttractionTo(planet2) }).should.not.throw('Sorry, force too big :|');
+
+			planet2.setMass(999);
+			(function() { planet1.getAttractionTo(planet2) }).should.not.throw('Sorry, force too big :|');
+
+			planet2.setMass(1001);
+			(function() { planet1.getAttractionTo(planet2) }).should.throw('Sorry, force too big :|');
+		})
 	})
 
 	describe('#update', function() {
