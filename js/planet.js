@@ -54,6 +54,6 @@ Planet.prototype.getDistanceTo = function(otherPlanet) {
 Planet.prototype.update = function(step) {
 	// First position, last force. Think it's better than the other way around.
 	this.position.add(Vector.by(this.speed, step));
-	this.speed.add(Vector.by(this.force, step));
+	this.speed.add(Vector.by(this.force, step).by(1000.0 / this.mass));
 	return this;
 };
