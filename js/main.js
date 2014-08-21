@@ -1,17 +1,24 @@
 $(function() {
 	const FPS = 60;
 
-	var planet1 = new Planet();
-	planet1.setMass(1000);
-	planet1.setPosition(new Vector(-200,0));
+	var sun_ = new Planet();
+	sun_.setMass(2000);
+	sun_.setPosition(new Vector(0,0));
 
-	var planet2 = new Planet();
-	planet2.setMass(1000);
-	planet2.setPosition(new Vector(200,0));
+	var earth = new Planet();
+	earth.setMass(10);
+	earth.setPosition(new Vector(100,0));
+	earth.setSpeed(new Vector(0,-98));
+
+	var moon = new Planet();
+	moon.setMass(5);
+	moon.setPosition(new Vector(210,0));
+	moon.setSpeed(new Vector(0,-90));
 
 	var space = new Space();
-	space.addPlanet(planet1);
-	space.addPlanet(planet2);
+	space.addPlanet(sun_);
+	space.addPlanet(earth);
+	space.addPlanet(moon);
 
 	var display = new Display($("#space"), space);
 
