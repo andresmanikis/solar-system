@@ -1,6 +1,6 @@
-bouncing-balls
-==============
+solar-system
+============
 
-Elastic bounce simulation.
+Solar system simulation.
 
-This project simulates the elastic bounce with different elasticities.
+This project aims to simulate a basic solar system physics implementing the gravitational interaction equations.
